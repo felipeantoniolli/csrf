@@ -1,12 +1,13 @@
 <?php
-$servername = "localhost";
+$server = "127.0.0.1";
+$dbname = "csrf";
 $username = "root";
 $password = "";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password);
+global $conn;
 
-// Check connection
+$conn = new PDO("mysql:host=$server;dbname=$dbname",$username,$password);
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 

@@ -14,14 +14,13 @@
 		  <button>Criar</button>
 		  <p class="message">Tem uma conta? <a href="#">Entre agora! </a></p>
 		</form>
-		<form class="login-form">
-		  <input type="text" placeholder="Usúario"/>
-		  <input type="password" placeholder="Senha"/>
-		  <button>Login</button>
+		<form class="login-form" method="get" action="login.php">
+		  <input type="text" name="email" placeholder="Email"/>
+		  <input type="password" name="senha" placeholder="Senha"/>
+		  <button type="submit">Login</button>
 		  <p class="message">Não tem conta? <a href="#">Crie agora!</a></p>
 		</form>
 	  </div>
 	</div>
 </body>
 </html>
-
