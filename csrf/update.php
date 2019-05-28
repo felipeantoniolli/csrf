@@ -3,7 +3,13 @@
 session_start();
 
 if(!isset($_SESSION['user'])) {
-header("Location: index.php");
+    header("Location: index.php");
+    return;
+}
+
+if ($_SESSION['csrf'] != $_GET['csrf']) {
+    header("Location: 404.html");
+    return;
 }
 
 require_once('connect.php');
@@ -31,4 +37,4 @@ if (!$result) {
     header('Location: dashboard.php');
 }
 
-// http://localhost/csrf/update.php?nome=Renata&email=renatinha_htadanight%40bol.com.br&senha=soulinda
+// http://localhost/csrf/csrf/update.php?nome=Renata&email=renatinha_htadanight%40bol.com.br&senha=soulinda
