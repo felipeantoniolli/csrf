@@ -54,6 +54,10 @@
   display: none; 
 } 
 
+button {
+  margin-top: 20px;
+}
+
 body{
   background:#16a085
 }

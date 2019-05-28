@@ -1,7 +1,10 @@
 <?php
 
-
 session_start();
+
+if (isset($_SESSION['user'])) {
+    header("Location: dashboard.php");
+}
 
 require_once('connect.php');
 
@@ -15,11 +18,14 @@ $sql = null;
 
 if (!$result) {
     header("Location: index.php");
-}else{
-    foreach ($result as $user) {
-        $_SESSION['nome'] = $result['nome'];
-    }
-    
-    header('Location: dashboard.php');
+} else {
+    $user = [
+        'id' =>$result['id'], 
+        'nome' => $result['nome'],
+        'email' => $result['email']
+    ];
+
+    $_SESSION['user'] = $user;
 }
 
+header('Location: dashboard.php');
