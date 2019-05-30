@@ -3,16 +3,8 @@
 <?php
   session_start();
 
-  $number =  mt_rand();
-  $token = base64_encode($number);
-  $_SESSION['csrf'] = $token;
-
-  if(!isset($_SESSION['user'])) {
-    header("Location: index.php");
-    return;
-  }
-
-  $user = $_SESSION['user'];
+  require_once('csrf.php');
+  require_once('checkUserNotLogged.php');
 ?>
 
 <html lang="en">

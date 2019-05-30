@@ -2,14 +2,9 @@
 
 session_start();
 
-$number =  mt_rand();
-$token = base64_encode($number);
-$_SESSION['csrf'] = $token;
+require_once('checkUserLogged.php');
+require_once('csrf.php');
 
-if (isset($_SESSION['user'])) {
-		header("Location: dashboard.php");
-		return;
-}
 ?>
 
 

@@ -2,15 +2,8 @@
 
 session_start();
 
-if (isset($_SESSION['user'])) {
-    header("Location: dashboard.php");
-    return;
-}
-
-if ($_SESSION['csrf'] != $_GET['csrf']) {
-    header("Location: 404.html");
-    return;
-}
+require_once('checkUserLogged.php');
+require_once('checkCsrfToken.php');
 
 require_once('connect.php');
 
